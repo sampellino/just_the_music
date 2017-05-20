@@ -20,12 +20,12 @@ setInterval(function(){
 	//Pandora elements to hide
 	var pandoraElements2Hide = [
 		".ArtistDetailSubnugget__image", /*artist image*/
+		".nowPlayingTopInfo__hitArea" /*album covers*/
 	];
 
 	//Pandora elements to delete
 	var pandoraElements2Delete = [
 		".ArtBg", /*album art wallpaper (page background)*/
-		".nowPlayingTopInfo__hitArea", /*album covers*/
 		".StationListItem__img", /*station album thumbnails*/
 		".Nugget" /*similar artists "nugget"*/
 	];
