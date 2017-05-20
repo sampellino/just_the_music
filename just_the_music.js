@@ -1,63 +1,55 @@
-/*Hide elements*/
+//Hide static content
 setInterval(function(){
-	var elementArr = [];
 
-	var youtubeVideos = document.getElementsByClassName("html5-video-container");
-	for(var i = 0; i < youtubeVideos.length; i++)
+	//YouTube elements to hide
+	var youtubeElements2Hide = [
+		".html5-video-container", /*video*/
+	];
+
+	var youtubeElements2Delete = [
+		".video-annotations", /*annotations*/
+		".ytp-endscreen-content", /*wall of video thumbnails that appear after the video ends*/
+		".thumb-link img", /*"up next" thumbnail*/
+		".yt-thumb-clip img", /*video thumbnails in the right sidebar*/
+		"#action-panel-details", /*video description*/
+		"#watch-discussion", /*comments*/
+		".branding-img-container", /*channel icon in the lower right side of the video*/
+		"div[data-layer='5']" /*thumbnail preview while cursor is over time slider*/
+	];
+
+	//Pandora elements to hide
+	var pandoraElements2Hide = [
+		".ArtBg", /*album art wallpaper (page background)*/
+		".nowPlayingTopInfo__artContainer__art", /*album art*/
+		".StationListItem__img" /*station album thumbnails*/
+	];
+
+	//Vimeo elements to hide
+	var vimeoElements2Hide = [
+		".video-wrapper" /*video*/
+	];
+
+	//List of all elements to hide
+	var elements2Hide = [];
+	elements2Hide = elements2Hide.concat(youtubeElements2Hide);
+	elements2Hide = elements2Hide.concat(pandoraElements2Hide);
+	elements2Hide = elements2Hide.concat(vimeoElements2Hide);
+
+	for(var i = 0; i < elements2Hide.length; i++) //For each element in the list
 	{
-	   elementArr.push(youtubeVideos.item(i));
+		$(elements2Hide[i]).each(function(index){ //For each match found
+			$(this).hide(); //Hide the element
+		});
 	}
 
-	var pandoraBackgroundWallpaper = document.getElementsByClassName("ArtBg");
-	for(var i = 0; i < pandoraBackgroundWallpaper.length; i++)
+	//List of all elements to delete
+	var elements2Delete= [];
+	elements2Delete = elements2Delete.concat(youtubeElements2Delete);
+
+	for(var i = 0; i < elements2Delete.length; i++) //For each element in the list
 	{
-		elementArr.push(pandoraBackgroundWallpaper.item(i));
+		$(elements2Delete[i]).each(function(index){ //For each match found
+			$(this).remove(); //Hide the element
+		});
 	}
-
-	var pandoraAlbumCovers = document.getElementsByClassName("nowPlayingTopInfo__artContainer__art");
-	for(var i = 0; i < pandoraAlbumCovers.length; i++)
-	{
-		elementArr.push(pandoraAlbumCovers.item(i));
-	}
-
-	var vimeoVideos = document.getElementsByClassName("video-wrapper");
-	for(var i = 0; i < vimeoVideos.length; i++)
-	{
-		elementArr.push(vimeoVideos.item(i));
-	}
-	
-	for(element in elementArr){
-		var el = elementArr[element];
-		if (typeof el !== 'undefined'){ //If element exists
-			el.style.visibility = "hidden";
-		}
-	}
-
-	//Hide annotations on YouTube
-	$(".video-annotations").hide();
-
-	//Hide endscreen content on YouTube
-	$(".ytp-endscreen-content").hide();
-
-	//Hide "up next" thumbnails on YouTube
-	$(".thumb-link img").hide();
-	$(".yt-thumb-clip img").hide();
-
-	//Hide comments on YouTibe
-	$("#comment-section-renderer").hide();
-
-	//Hide description panel on YouTube
-	$("#watch-description").hide();
-
-	//Hide channel icon in the lower right side of the YouTube video
-	$(".branding-img-container").hide();
-},1000);
-
-setInterval(function(){
-	//Hide video scrolling preview
-	$(".ytp-preview").hide();
-},100);
-
-function isHidden(el) {
-    return (el.style.visibility === 'hidden')
-}
+},333);
