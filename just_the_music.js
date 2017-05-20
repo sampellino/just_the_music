@@ -4,13 +4,13 @@ setInterval(function(){
 	//YouTube elements to hide
 	var youtubeElements2Hide = [
 		".html5-video-container", /*video*/
+		".thumb-link img", /*"up next" thumbnail*/
+		".yt-thumb-clip img" /*video thumbnails in the right sidebar*/
 	];
 
 	var youtubeElements2Delete = [
 		".video-annotations", /*annotations*/
 		".ytp-endscreen-content", /*wall of video thumbnails that appear after the video ends*/
-		".thumb-link img", /*"up next" thumbnail*/
-		".yt-thumb-clip img", /*video thumbnails in the right sidebar*/
 		"#action-panel-details", /*video description*/
 		"#watch-discussion", /*comments*/
 		".branding-img-container", /*channel icon in the lower right side of the video*/
@@ -20,12 +20,12 @@ setInterval(function(){
 	//Pandora elements to hide
 	var pandoraElements2Hide = [
 		".ArtistDetailSubnugget__image", /*artist image*/
+		".ArtBg", /*album art wallpaper (page background)*/
 		".nowPlayingTopInfo__hitArea" /*album covers*/
 	];
 
 	//Pandora elements to delete
 	var pandoraElements2Delete = [
-		".ArtBg", /*album art wallpaper (page background)*/
 		".StationListItem__img", /*station album thumbnails*/
 		".Nugget" /*similar artists "nugget"*/
 	];
@@ -44,7 +44,7 @@ setInterval(function(){
 	for(var i = 0; i < elements2Hide.length; i++) //For each element in the list
 	{
 		$(elements2Hide[i]).each(function(index){ //For each match found
-			$(this).hide(); //Hide the element
+			$(this).slideUp(500); //Fade out the element
 		});
 	}
 
