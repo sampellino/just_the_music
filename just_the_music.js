@@ -19,9 +19,15 @@ setInterval(function(){
 
 	//Pandora elements to hide
 	var pandoraElements2Hide = [
+		".ArtistDetailSubnugget__image", /*artist image*/
+	];
+
+	//Pandora elements to delete
+	var pandoraElements2Delete = [
 		".ArtBg", /*album art wallpaper (page background)*/
-		".nowPlayingTopInfo__artContainer__art", /*album art*/
-		".StationListItem__img" /*station album thumbnails*/
+		".nowPlayingTopInfo__hitArea", /*album covers*/
+		".StationListItem__img", /*station album thumbnails*/
+		".Nugget" /*similar artists "nugget"*/
 	];
 
 	//Vimeo elements to hide
@@ -45,6 +51,7 @@ setInterval(function(){
 	//List of all elements to delete
 	var elements2Delete= [];
 	elements2Delete = elements2Delete.concat(youtubeElements2Delete);
+	elements2Delete = elements2Delete.concat(pandoraElements2Delete);
 
 	for(var i = 0; i < elements2Delete.length; i++) //For each element in the list
 	{
