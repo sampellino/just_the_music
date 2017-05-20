@@ -6,17 +6,17 @@
   "version": "2.0",
 
   "browser_action": {
-    "default_icon": "boombox_128.png"
+    "default_icon": "img/boombox_128.png"
   },
 
   "icons": { 
-    "16": "boombox_16.png",
-    "48": "boombox_48.png",
-    "128": "boombox_128.png"
+    "16": "img/boombox_16.png",
+    "48": "img/boombox_48.png",
+    "128": "img/boombox_128.png"
   },
 
   "background":{
-    "scripts": ["background.js"]
+    "scripts": ["js/background.js"]
   },
 
   "permissions": [
