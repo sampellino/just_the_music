@@ -35,23 +35,37 @@ setInterval(function(){
 		".video-wrapper" /*video*/
 	];
 
+	//SoundCloud elements to hide
+	var soundCloudElements2Hide = [
+		"#content", /*main content*/
+		".sc-artwork" /*album artwork*/
+	];
+
 	//List of all elements to hide
 	var elements2Hide = [];
-	elements2Hide = elements2Hide.concat(youtubeElements2Hide);
-	elements2Hide = elements2Hide.concat(pandoraElements2Hide);
-	elements2Hide = elements2Hide.concat(vimeoElements2Hide);
+
+	//List of all elements to delete
+	var elements2Delete= [];
+
+	var windowURL = window.location.toString();
+	if (windowURL.toLowerCase().indexOf("youtube") !== -1){
+		elements2Hide = elements2Hide.concat(youtubeElements2Hide);
+		elements2Delete = elements2Delete.concat(youtubeElements2Delete);
+	}else if (windowURL.toLowerCase().indexOf("pandora") !== -1){
+		elements2Hide = elements2Hide.concat(pandoraElements2Hide);
+		elements2Delete = elements2Delete.concat(pandoraElements2Delete);
+	}else if (windowURL.toLowerCase().indexOf("vimeo") !== -1){
+		elements2Hide = elements2Hide.concat(vimeoElements2Hide);
+	}else if (windowURL.toLowerCase().indexOf("soundcloud") !== -1){
+		elements2Hide = elements2Hide.concat(soundCloudElements2Hide);
+	}
 
 	for(var i = 0; i < elements2Hide.length; i++) //For each element in the list
 	{
 		$(elements2Hide[i]).each(function(index){ //For each match found
-			$(this).slideUp(500); //Fade out the element
+			$(this).fadeOut(300).slideUp(250); //Fade out the element
 		});
 	}
-
-	//List of all elements to delete
-	var elements2Delete= [];
-	elements2Delete = elements2Delete.concat(youtubeElements2Delete);
-	elements2Delete = elements2Delete.concat(pandoraElements2Delete);
 
 	for(var i = 0; i < elements2Delete.length; i++) //For each element in the list
 	{
