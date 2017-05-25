@@ -7,3 +7,5 @@
 	- StationListItem__currentStationOverlay__equalizer
 - Remove ad div from Pandora
 	- #adContainer
+- Remove progress bar from previously watched videos on YouTube
+	- .resume-playback-progress-bar
