@@ -31,7 +31,8 @@ function YouTube() {
 		".branding-img-container", /*channel icon in the lower right side of the video*/
 		"div[data-layer='5']", /*thumbnail preview while cursor is over time slider*/
 		".resume-playback-progress-bar", /*red playback progress bar that appears under related video thumbnails*/
-		"#watch-action-panels" /*share/embed/email panel that appears when a video ends*/
+		"#watch-action-panels", /*share/embed/email panel that appears when a video ends*/
+		"#watch-sidebar-live-chat" /*live chat for YouTube live videos*/
 	];
 
 	HideElements(youtubeElements2Hide); //Hide specified DOM elements
