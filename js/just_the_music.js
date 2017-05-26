@@ -52,7 +52,7 @@ function Pandora(){
 		".StationListItem__img", /*station album thumbnails*/
 		".Nugget", /*similar artists "nugget"*/
 		".StationListItem__currentStationOverlay__equalizer", /*currently playing station's equalizer animation gif*/
-		"#adContainer" /*ad space*/
+		".DisplayAdController" /*ad space*/
 	];
 
 	HideElements(pandoraElements2Hide); //Hide specified DOM elements
