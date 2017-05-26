@@ -1,6 +1,20 @@
-//Hide static content
+//Keep checking the tab on an interval
 setInterval(function(){
+	var windowURL = window.location.toString();
 
+	//If the URL contains a keyword for a site, kick-off that site's custom function
+	if (windowURL.toLowerCase().indexOf("youtube") !== -1){
+		YouTube();
+	}else if (windowURL.toLowerCase().indexOf("pandora") !== -1){
+		Pandora();
+	}else if (windowURL.toLowerCase().indexOf("vimeo") !== -1){
+		Vimeo();
+	}else if (windowURL.toLowerCase().indexOf("soundcloud") !== -1){
+		SoundCloud();
+	}
+},333);
+
+function YouTube() {
 	//YouTube elements to hide
 	var youtubeElements2Hide = [
 		".html5-video-container", /*video*/
@@ -8,15 +22,23 @@ setInterval(function(){
 		".yt-thumb-clip img" /*video thumbnails in the right sidebar*/
 	];
 
+	//YouTube elements to delete
 	var youtubeElements2Delete = [
 		".video-annotations", /*annotations*/
 		".ytp-endscreen-content", /*wall of video thumbnails that appear after the video ends*/
 		"#action-panel-details", /*video description*/
 		"#watch-discussion", /*comments*/
 		".branding-img-container", /*channel icon in the lower right side of the video*/
-		"div[data-layer='5']" /*thumbnail preview while cursor is over time slider*/
+		"div[data-layer='5']", /*thumbnail preview while cursor is over time slider*/
+		".resume-playback-progress-bar", /*red playback progress bar that appears under related video thumbnails*/
+		"#watch-action-panels" /*share/embed/email panel that appears when a video ends*/
 	];
 
+	HideElements(youtubeElements2Hide); //Hide specified DOM elements
+	DeleteElements(youtubeElements2Delete); //Delete specified DOM elements
+}
+
+function Pandora(){
 	//Pandora elements to hide
 	var pandoraElements2Hide = [
 		".ArtistDetailSubnugget__image", /*artist image*/
@@ -27,50 +49,53 @@ setInterval(function(){
 	//Pandora elements to delete
 	var pandoraElements2Delete = [
 		".StationListItem__img", /*station album thumbnails*/
-		".Nugget" /*similar artists "nugget"*/
+		".Nugget", /*similar artists "nugget"*/
+		".StationListItem__currentStationOverlay__equalizer", /*currently playing station's equalizer animation gif*/
+		"#adContainer" /*ad space*/
 	];
 
-	//Vimeo elements to hide
-	var vimeoElements2Hide = [
-		".video-wrapper" /*video*/
-	];
+	HideElements(pandoraElements2Hide); //Hide specified DOM elements
+	DeleteElements(pandoraElements2Delete); //Delete specified DOM elements
 
+	//Prevent long song titles from marquee-ing
+	$(".Marquee__wrapper__content--animating").addClass("Marquee__wrapper__content").removeClass("Marquee__wrapper__content--animating");
+}
+
+function SoundCloud(){
 	//SoundCloud elements to hide
 	var soundCloudElements2Hide = [
 		"#content", /*main content*/
 		".sc-artwork" /*album artwork*/
 	];
 
-	//List of all elements to hide
-	var elements2Hide = [];
+	HideElements(soundCloudElements2Hide); //Hide specified DOM elements
+}
 
-	//List of all elements to delete
-	var elements2Delete= [];
+function Vimeo(){
+	//Vimeo elements to hide
+	var vimeoElements2Hide = [
+		".video-wrapper" /*video*/
+	];
 
-	var windowURL = window.location.toString();
-	if (windowURL.toLowerCase().indexOf("youtube") !== -1){
-		elements2Hide = elements2Hide.concat(youtubeElements2Hide);
-		elements2Delete = elements2Delete.concat(youtubeElements2Delete);
-	}else if (windowURL.toLowerCase().indexOf("pandora") !== -1){
-		elements2Hide = elements2Hide.concat(pandoraElements2Hide);
-		elements2Delete = elements2Delete.concat(pandoraElements2Delete);
-	}else if (windowURL.toLowerCase().indexOf("vimeo") !== -1){
-		elements2Hide = elements2Hide.concat(vimeoElements2Hide);
-	}else if (windowURL.toLowerCase().indexOf("soundcloud") !== -1){
-		elements2Hide = elements2Hide.concat(soundCloudElements2Hide);
-	}
+	HideElements(vimeoElements2Hide); //Hide specified DOM elements
+}
 
-	for(var i = 0; i < elements2Hide.length; i++) //For each element in the list
+//Hides a list of elements from DOM 
+function HideElements(elementsArr){
+	for(var i = 0; i < elementsArr.length; i++) //For each element in the list
 	{
-		$(elements2Hide[i]).each(function(index){ //For each match found
-			$(this).fadeOut(300).slideUp(250); //Fade out the element
+		$(elementsArr[i]).each(function(index){ //For each match found
+			$(this).fadeOut(400).slideUp(250); //Fade out the element
 		});
 	}
+}
 
-	for(var i = 0; i < elements2Delete.length; i++) //For each element in the list
+//Deletes a list of elements from DOM 
+function DeleteElements(elementsArr){
+	for(var i = 0; i < elementsArr.length; i++) //For each element in the list
 	{
-		$(elements2Delete[i]).each(function(index){ //For each match found
+		$(elementsArr[i]).each(function(index){ //For each match found
 			$(this).remove(); //Hide the element
 		});
 	}
-},333);
+}
