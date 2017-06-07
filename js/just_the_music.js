@@ -34,9 +34,14 @@ function YouTube() {
 		"#watch-action-panels", /*share/embed/email panel that appears when a video ends*/
 		"#watch-sidebar-live-chat" /*live chat for YouTube live videos*/
 	];
+	
+	var youtubeElements2Show = [
+		".loop-button:not(.button-show-icon) .yt-uix-button-icon-wrapper" /*Add to/share/more buttons*/	
+	];
 
 	HideElements(youtubeElements2Hide); //Hide specified DOM elements
 	DeleteElements(youtubeElements2Delete); //Delete specified DOM elements
+	ShowElements(youtubeElements2Show); //Show specified DOM elements
 }
 
 function Pandora(){
@@ -97,6 +102,16 @@ function DeleteElements(elementsArr){
 	{
 		$(elementsArr[i]).each(function(index){ //For each match found
 			$(this).remove(); //Hide the element
+		});
+	}
+}
+
+//Makes sure a list of DOM elements are being displayed
+function ShowElements(elementsArr){
+	for(var i = 0; i < elementsArr.length; i++) //For each element in the list
+	{
+		$(elementsArr[i]).each(function(index){ //For each match found
+			$(this).show(); //Show the element
 		});
 	}
 }
