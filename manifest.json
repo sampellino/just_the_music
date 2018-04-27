@@ -3,7 +3,7 @@
 
   "name": "Just the Music",
   "description": "This extension hides the visual portion of videos and album covers on music sites",
-  "version": "2.5",
+  "version": "2.6",
 
   "browser_action": {
     "default_icon": "img/boombox_128.png"
