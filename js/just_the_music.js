@@ -32,7 +32,9 @@ function YouTube() {
 		"div[data-layer='5']", /*thumbnail preview while cursor is over time slider*/
 		".resume-playback-progress-bar", /*red playback progress bar that appears under related video thumbnails*/
 		"#watch-action-panels", /*share/embed/email panel that appears when a video ends*/
-		"#watch-sidebar-live-chat" /*live chat for YouTube live videos*/
+		"#watch-sidebar-live-chat", /*live chat for YouTube live videos*/
+		".ytd-thumbnail", /*up-next and related video thumbnails*/
+		".ytd-video-owner-renderer" /*video owner thumbnail*/
 	];
 	
 	var youtubeElements2Show = [
