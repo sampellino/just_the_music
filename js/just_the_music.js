@@ -27,7 +27,7 @@ function YouTube() {
 		".video-annotations", /*annotations*/
 		".ytp-endscreen-content", /*wall of video thumbnails that appear after the video ends*/
 		"#action-panel-details", /*video description*/
-		"#watch-discussion", /*comments*/
+		"#comments", /*comments*/
 		".branding-img-container", /*channel icon in the lower right side of the video*/
 		"div[data-layer='5']", /*thumbnail preview while cursor is over time slider*/
 		".resume-playback-progress-bar", /*red playback progress bar that appears under related video thumbnails*/
