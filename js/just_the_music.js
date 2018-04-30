@@ -35,6 +35,7 @@ function YouTube() {
 		"#watch-sidebar-live-chat", /*live chat for YouTube live videos*/
 		".ytd-thumbnail", /*up-next and related video thumbnails*/
 		".ytd-video-owner-renderer" /*video owner thumbnail*/
+		"ytd-playlist-video-thumbnail-renderer" /*playlist thumbnails (apparently different than regular thumbnails)*/
 	];
 	
 	var youtubeElements2Show = [
