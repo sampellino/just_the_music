@@ -50,7 +50,7 @@ function Pandora(){
 	//Pandora elements to hide
 	var pandoraElements2Hide = [
 		".ArtistDetailSubnugget__image", /*artist image*/
-		".ArtBg", /*album art wallpaper (page background)*/
+		".AppBg__img", /*album art wallpaper (page background)*/
 		".nowPlayingTopInfo__hitArea" /*album covers*/
 	];
 
