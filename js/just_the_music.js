@@ -34,7 +34,7 @@ function YouTube() {
 		"#watch-action-panels", /*share/embed/email panel that appears when a video ends*/
 		"#watch-sidebar-live-chat", /*live chat for YouTube live videos*/
 		".ytd-thumbnail", /*up-next and related video thumbnails*/
-		".ytd-video-owner-renderer" /*video owner thumbnail*/
+		".ytd-video-owner-renderer", /*video owner thumbnail*/
 		"ytd-playlist-video-thumbnail-renderer" /*playlist thumbnails (apparently different than regular thumbnails)*/
 	];
 	
